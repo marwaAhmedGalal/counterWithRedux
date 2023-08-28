@@ -1,0 +1,14 @@
+.mainDivCount{
+    text-align: center;
+}
+
+.countButton{
+    padding: 5px;
+    margin: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.count{
+    font-size: 2em;
+    margin-bottom: 10px;
+}
