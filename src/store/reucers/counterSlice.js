@@ -16,10 +16,20 @@ const counterSlice = createSlice({
   },
 
   //extraReducers using when want to slice listen to another slice (state = counterSlice but action = logOut(authSlice))
-  extraReducers: {
-    [logOut]: (state, action) => {
+
+  //way one
+  // extraReducers:
+  //  {
+  //   [logOut]: (state, action) => {
+  //     state.countValue = action.payload;
+  //   },
+  // },
+
+  //way two
+  extraReducers: (blunder) => {
+    blunder.addCase(logOut, (state, action) => {
       state.countValue = action.payload;
-    },
+    });
   },
 });
 
