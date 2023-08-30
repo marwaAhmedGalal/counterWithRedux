@@ -3,41 +3,30 @@ import "./counter.css";
 import { useCallback, useEffect } from "react";
 
 function Counter() {
-  // const countValue = useSelector((state) => {
-  //   if (state.countValue < 1) {
-  //     return "no number";
-  //   }
-  //   return state.countValue;
-  // });
+
   const store = useSelector((state) => state);
   const dispatch = useDispatch();
-
+  
+//useCallback to solve problem of evaluate
   const counterOration = useCallback(
     (type, payload) => {
-      console.log(type, payload);
       dispatch({ type, payload });
     },
     [dispatch]
   );
+  
+  //useEffect to show the value when the app open
   useEffect(() => {
     return () => {
       counterOration("increase", 10);
     };
   }, [counterOration]);
 
-  // const increase = () => {
-  //   const action = { type: "increase", payload: 5 };
-  //   dispatch(action);
-  // };
-  // const decrease = () => {
-  //   const action = { type: "decrease", payload: 2 };
-  //   dispatch(action);
-  // };
+ 
   const hundleCounterValue = (value) => {
     if (value < 1) {
       return "no number";
     }
-    console.log(value);
     return value;
   };
   const showcount = () => {
