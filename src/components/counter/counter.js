@@ -30,7 +30,8 @@ function Counter() {
   //dispatch the action
   const loginHandler = (status) => {
     if (status) {
-      dispatch(logOut());
+      //add action.payload to use in the extrareducers
+      dispatch(logOut(15));
     } else {
       dispatch(logIn());
     }
